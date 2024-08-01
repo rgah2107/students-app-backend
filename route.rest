@@ -1,0 +1,37 @@
+GET http://localhost:5000/students
+
+
+###
+
+GET http://localhost:5000/students/66abd713696d845644fb1877
+
+###
+
+POST http://localhost:5000/students
+Content-Type: application/json
+
+{
+  "firstName": "Jhon",
+  "lastName": "Doe",
+  "email": "email03@gmail.com",
+  "age": 5,
+  "grade": "1st"
+}
+
+###
+
+DELETE  http://localhost:5000/students/66abe2b0dc78bad8b8503822
+
+###
+
+PATCH  http://localhost:5000/students/66abe2b4dc78bad8b8503824
+Content-Type: application/json
+
+{
+  "email": "email10@gmail.com",
+  "lastName": "Jhones",
+  "age": 10,
+  "grade": "2nd"
+
+}
+
