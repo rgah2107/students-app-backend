@@ -4,17 +4,16 @@ const Student = require('../models/student')
 
 // Get students
 router.get('/', async (req, res) => {
+  const { page, size } = req.query
   try {
+    const total = await Student.countDocuments()
     const students = await Student.find()
-    res.json(students)
+      .skip(Number(page - 1) * Number(size))
+      .limit(Number(size))
+    res.json({ students, total })
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
-})
-
-// Get one student
-router.get('/:id', getStudent, async (req, res) => {
-  res.send(res.student)
 })
 
 // Add student
